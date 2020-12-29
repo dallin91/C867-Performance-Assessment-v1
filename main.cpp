@@ -52,9 +52,5 @@ int main() {
 	cout << endl;
 
 
-	//FIX ME: CALL DESTRUCTOR
-
-
-
 	return 0;
 }
