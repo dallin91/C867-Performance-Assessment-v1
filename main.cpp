@@ -35,7 +35,7 @@ int main() {
 	cout << endl;
 
 	for (int i = 0; i < numStudents; i++) {
-		classRoster.printAverageDaysInCourse(classRoster.rosterArray[i]->GetStudentID());
+		classRoster.printAverageDaysInCourse(classRoster.classRosterArray[i]->GetStudentID());
 	}
 	cout << endl;
 
