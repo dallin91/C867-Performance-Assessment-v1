@@ -94,15 +94,7 @@ void Roster::printAll() {
 	Student::PrintHeader(); //prints header from student class to improve comprehension
 
 	for (int i = 0; i <= Roster::lastIndex; i++) {
-		cout << classRosterArray[i]->GetStudentID() << '\t';
-		cout << classRosterArray[i]->GetStudentFirstName() << '\t';
-		cout << classRosterArray[i]->GetStudentLastName() << '\t';
-		cout << classRosterArray[i]->GetStudentEmail() << '\t';
-		cout << classRosterArray[i]->GetStudentAge() << '\t';
-		cout << classRosterArray[i]->GetNumDaysToComplete()[0] << '\t';
-		cout << classRosterArray[i]->GetNumDaysToComplete()[1] << '\t';
-		cout << classRosterArray[i]->GetNumDaysToComplete()[2] << '\t';
-		cout << degreeProgramStrings[classRosterArray[i]->GetDegreeProgram()] << endl;
+		classRosterArray[i]->Print();
 	}
 }
 
