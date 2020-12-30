@@ -62,7 +62,7 @@ void Roster::add(string studentID, string firstName, string lastName, string ema
 	DegreeProgram degreeProgram) {
 	int daysArr[3] = { daysToComplete2, daysToComplete2, daysToComplete3 };
 
-	rosterArray[++lastIndex] = new Student(studentID, firstName, lastName, email,
+	classRosterArray[++lastIndex] = new Student(studentID, firstName, lastName, email,
 		age, daysArr, degreeProgram);
 }
 
@@ -70,13 +70,13 @@ void Roster::remove(string studentID) {
 	bool success = false;
 
 	for (int i = 0; i <= Roster::lastIndex; i++) {
-		if (rosterArray[i]->GetStudentID() == studentID) {
+		if (classRosterArray[i]->GetStudentID() == studentID) {
 			success = true;
 
 			if (i < numStudents - 1) {
-				Student* temp = rosterArray[i];
-				rosterArray[i] = rosterArray[numStudents - 1];
-				rosterArray[numStudents - 1] = temp;
+				Student* temp = classRosterArray[i];
+				classRosterArray[i] = classRosterArray[numStudents - 1];
+				classRosterArray[numStudents - 1] = temp;
 			}
 			Roster::lastIndex--; //decreases index by 1, getting rid of the last index
 		}
@@ -94,15 +94,15 @@ void Roster::printAll() {
 	Student::PrintHeader(); //prints header from student class to improve comprehension
 
 	for (int i = 0; i <= Roster::lastIndex; i++) {
-		cout << rosterArray[i]->GetStudentID() << '\t';
-		cout << rosterArray[i]->GetStudentFirstName() << '\t';
-		cout << rosterArray[i]->GetStudentLastName() << '\t';
-		cout << rosterArray[i]->GetStudentEmail() << '\t';
-		cout << rosterArray[i]->GetStudentAge() << '\t';
-		cout << rosterArray[i]->GetNumDaysToComplete()[0] << '\t';
-		cout << rosterArray[i]->GetNumDaysToComplete()[1] << '\t';
-		cout << rosterArray[i]->GetNumDaysToComplete()[2] << '\t';
-		cout << degreeProgramStrings[rosterArray[i]->GetDegreeProgram()] << endl;
+		cout << classRosterArray[i]->GetStudentID() << '\t';
+		cout << classRosterArray[i]->GetStudentFirstName() << '\t';
+		cout << classRosterArray[i]->GetStudentLastName() << '\t';
+		cout << classRosterArray[i]->GetStudentEmail() << '\t';
+		cout << classRosterArray[i]->GetStudentAge() << '\t';
+		cout << classRosterArray[i]->GetNumDaysToComplete()[0] << '\t';
+		cout << classRosterArray[i]->GetNumDaysToComplete()[1] << '\t';
+		cout << classRosterArray[i]->GetNumDaysToComplete()[2] << '\t';
+		cout << degreeProgramStrings[classRosterArray[i]->GetDegreeProgram()] << endl;
 	}
 }
 
@@ -110,10 +110,10 @@ void Roster::printAverageDaysInCourse(string studentID) {
 	int average = 0.0;
 
 	for (int i = 0; i <= Roster::lastIndex; i++) {
-		string tempID = rosterArray[i]->GetStudentID();
+		string tempID = classRosterArray[i]->GetStudentID();
 		if (tempID == studentID) {
-			average = (rosterArray[i]->GetNumDaysToComplete()[0] + rosterArray[i]->GetNumDaysToComplete()[1]
-				+ rosterArray[i]->GetNumDaysToComplete()[2]) / 3;
+			average = (classRosterArray[i]->GetNumDaysToComplete()[0] + classRosterArray[i]->GetNumDaysToComplete()[1]
+				+ classRosterArray[i]->GetNumDaysToComplete()[2]) / 3;
 			cout << "Student ID: " << studentID << endl;
 			cout << "Average number of days to complete course: " << average << endl;
 		}
@@ -122,7 +122,7 @@ void Roster::printAverageDaysInCourse(string studentID) {
 
 void Roster::printInvalidEmails() {
 	for (int i = 0; i <= Roster::lastIndex; i++) {
-		string invalidEmail = rosterArray[i]->GetStudentEmail();
+		string invalidEmail = classRosterArray[i]->GetStudentEmail();
 		if ((invalidEmail.find(".") == string::npos || invalidEmail.find("@") == string::npos) ||
 			(invalidEmail.find(" ") != string::npos)) {
 			cout << invalidEmail << endl;
@@ -134,8 +134,8 @@ void Roster::printByDegreeProgram(DegreeProgram degreeProgram) {
 	Student::PrintHeader();
 
 	for (int i = 0; i <= Roster::lastIndex; i++) {
-		if (Roster::rosterArray[i]->GetDegreeProgram() == degreeProgram) {
-			rosterArray[i]->Print();
+		if (Roster::classRosterArray[i]->GetDegreeProgram() == degreeProgram) {
+			classRosterArray[i]->Print();
 		}
 	}
 
@@ -146,7 +146,7 @@ Roster::~Roster() {
 	cout << "Destructor initiated" << endl;
 
 	for (int i = 0; i < numStudents; i++) {
-		delete rosterArray[i];
-		rosterArray[i] = nullptr;
+		delete classRosterArray[i];
+		classRosterArray[i] = nullptr;
 	}
 }
