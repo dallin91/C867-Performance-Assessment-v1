@@ -16,6 +16,11 @@ int main() {
 		"A5,Dallin,Reeves,dreev47@wgu.edu,29, 33, 27, 58,SOFTWARE"
 	};
 
+	cout << "C867 Scripting and Programming Applications" << endl;
+	cout << "By Dallin Reeves" << endl;
+	cout << "Student ID: #001176010" << endl;
+	cout << "Language: C++" << endl;
+
 	const int numStudents = 5;
 	Roster classRoster;
 
