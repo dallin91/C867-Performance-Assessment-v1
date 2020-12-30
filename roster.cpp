@@ -30,13 +30,13 @@ void Roster::parse(string studentData) {
 	//parse days to complete 
 	lhs = rhs + 1;
 	rhs = studentData.find(",", lhs);
-	double days1 = stod(studentData.substr(lhs, rhs - lhs));
+	int days1 = stoi(studentData.substr(lhs, rhs - lhs));
 	lhs = rhs + 1;
 	rhs = studentData.find(",", lhs);
-	double days2 = stod(studentData.substr(lhs, rhs - lhs));
+	int days2 = stoi(studentData.substr(lhs, rhs - lhs));
 	lhs = rhs + 1;
 	rhs = studentData.find(",", lhs);
-	double days3 = stod(studentData.substr(lhs, rhs - lhs));
+	int days3 = stoi(studentData.substr(lhs, rhs - lhs));
 
 	//parse degree program
 	lhs = rhs + 1;
@@ -58,9 +58,9 @@ void Roster::parse(string studentData) {
 }
 
 void Roster::add(string studentID, string firstName, string lastName, string email,
-	int age, double daysToComplete1, double daysToComplete2, double daysToComplete3,
+	int age, int daysToComplete1, int daysToComplete2, int daysToComplete3,
 	DegreeProgram degreeProgram) {
-	double daysArr[3] = { daysToComplete2, daysToComplete2, daysToComplete3 };
+	int daysArr[3] = { daysToComplete2, daysToComplete2, daysToComplete3 };
 
 	rosterArray[++lastIndex] = new Student(studentID, firstName, lastName, email,
 		age, daysArr, degreeProgram);
@@ -107,7 +107,7 @@ void Roster::printAll() {
 }
 
 void Roster::printAverageDaysInCourse(string studentID) {
-	double average = 0.0;
+	int average = 0.0;
 
 	for (int i = 0; i <= Roster::lastIndex; i++) {
 		string tempID = rosterArray[i]->GetStudentID();

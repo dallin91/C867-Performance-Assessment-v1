@@ -15,7 +15,7 @@ Student::Student() {
 
 //constructor
 Student::Student(string studentID, string studentFirstName, string studentLastName, string studentEmail,
-	int studentAge, double daysToComplete[], DegreeProgram degreeProgram) {
+	int studentAge, int daysToComplete[], DegreeProgram degreeProgram) {
 	this->studentID = studentID;
 	this->studentFirstName = studentFirstName;
 	this->studentLastName = studentLastName;
@@ -46,7 +46,7 @@ string Student::GetStudentEmail() {
 int Student::GetStudentAge() {
 	return this->studentAge;
 }
-double* Student::GetNumDaysToComplete() {
+int* Student::GetNumDaysToComplete() {
 	return this->daysToComplete;
 }
 DegreeProgram Student::GetDegreeProgram() {
@@ -69,7 +69,7 @@ void Student::SetStudentEmail(string studentEmail) {
 void Student::SetStudentAge(int studentAge) {
 	this->studentAge = studentAge;
 }
-void Student::SetNumDaysToComplete(double daysToComplete[]) {
+void Student::SetNumDaysToComplete(int daysToComplete[]) {
 	for (int i = 0; i < daysArrayLen; ++i) {
 		this->daysToComplete[i] = daysToComplete[i];
 	}

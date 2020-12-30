@@ -15,14 +15,14 @@ private:
 	string studentLastName;
 	string studentEmail;
 	int studentAge;
-	double daysToComplete[daysArrayLen];
+	int daysToComplete[daysArrayLen];
 	DegreeProgram degreeProgram;
 
 public:
 	//constructors
 	Student();
 	Student(string studentID, string studentFirstName, string studentLastName, string studentEmail,
-		int studentAge, double daysToComplete[], DegreeProgram degreeProgram);
+		int studentAge, int daysToComplete[], DegreeProgram degreeProgram);
 	//destructor
 	~Student();
 
@@ -32,7 +32,7 @@ public:
 	string GetStudentLastName();
 	string GetStudentEmail();
 	int GetStudentAge();
-	double* GetNumDaysToComplete();
+	int* GetNumDaysToComplete();
 	DegreeProgram GetDegreeProgram();
 
 	//Mutators
@@ -41,7 +41,7 @@ public:
 	void SetStudentLastName(string studentLastName);
 	void SetStudentEmail(string studentEmail);
 	void SetStudentAge(int studentAge);
-	void SetNumDaysToComplete(double daysToComplete[]);
+	void SetNumDaysToComplete(int daysToComplete[]);
 	void SetDegreeProgram(DegreeProgram degreeProgram);
 
 	static void PrintHeader();

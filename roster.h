@@ -12,7 +12,7 @@ public:
 	void parse(string row);
 	//add each student object to classRosterArray
 	void add(string studentID, string firstName, string lastName, string email,
-		int age, double daysToComplete1, double daysToComplete2, double daysToComplete3,
+		int age, int daysToComplete1, int daysToComplete2, int daysToComplete3,
 		DegreeProgram degreeProgram);
 	void remove(string studentID);
 	void printAll();
