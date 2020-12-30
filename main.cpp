@@ -20,6 +20,7 @@ int main() {
 	cout << "By Dallin Reeves" << endl;
 	cout << "Student ID: #001176010" << endl;
 	cout << "Language: C++" << endl;
+	cout << endl;
 
 	const int numStudents = 5;
 	Roster classRoster;
