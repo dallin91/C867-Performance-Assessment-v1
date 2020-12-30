@@ -90,8 +90,8 @@ void Student::Print() {
 	cout << this->GetStudentLastName() << '\t';
 	cout << this->GetStudentEmail() << '\t';
 	cout << this->GetStudentAge() << '\t';
-	cout << this->GetNumDaysToComplete()[0] << ',';
-	cout << this->GetNumDaysToComplete()[1] << ',';
+	cout << this->GetNumDaysToComplete()[0] << '\t';
+	cout << this->GetNumDaysToComplete()[1] << '\t';
 	cout << this->GetNumDaysToComplete()[2] << '\t';
 	cout << degreeProgramStrings[this->GetDegreeProgram()] << endl;
 }
